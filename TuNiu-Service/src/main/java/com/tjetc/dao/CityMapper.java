@@ -12,8 +12,8 @@ public interface CityMapper {
     List<City> list();
 
     @Select("select * from city where id = #{id}")
-    City findByPrimaryKey(Integer id);
+    City selectByPrimaryKey(Integer id);
 
     @Select("select * from city where name = #{name}")
-    City findByName(String name);
+    City selectByName(String name);
 }

@@ -8,6 +8,6 @@ import java.util.List;
 @Service
 public interface CityService {
     List<City> list();
-    City findByPrimaryKey(Integer id);
-    City findByName(String name);
+    City selectByPrimaryKey(Integer id);
+    City selectByName(String name);
 }

@@ -19,12 +19,12 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public City findByPrimaryKey(Integer id) {
+    public City selectByPrimaryKey(Integer id) {
         return null;
     }
 
     @Override
-    public City findByName(String name) {
+    public City selectByName(String name) {
         return null;
     }
 }
