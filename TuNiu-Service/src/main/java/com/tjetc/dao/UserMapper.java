@@ -7,12 +7,12 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface UserMapper {
-    @Select("select * from user where account=#{account}")
-    User findByAccount(String account);
-    @Select("select * from user where name=#{name}")
+    @Select("select * from `user` where account=#{account}")
+    User findByUsername(String account);
+    @Select("select * from `user` where name=#{name}")
     User findByName(String name);
-    @Insert("insert into user(account,password,name) values(#{account},#{password},#{name})")
-    void register(User user);
-    @Select("select account from user where id=#{id}")
+    @Insert("insert into `user`(account,password,name) values(#{account},#{password},#{name})")
+    int register(User user);
+    @Select("select account from `user` where id=#{id}")
     String getAccount(Integer id);
 }

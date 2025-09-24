@@ -1,6 +1,43 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/tuniu?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&allowMultiQueries=true&allowLoadLocalInfile=true&allowUrlInLocalInfile=true&allowPublicKeyRetrieval=true&allowMultiQueries=true&allowUrlInLocalInfile=true&allowPublicKeyRetrieval=true&allowMultiQueries=true&allowUrlInLocalInfile=true&allowPublicKey
+    url: jdbc:mysql://127.0.0.1:3306/tuniu?serverTimezone=GMT%2B8
     username: root
     password: 123456
+  rabbitmq:
+    host: 192.168.88.128
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+  data:
+    redis:
+      host: 192.168.88.128
+      port: 6379
+logging:
+  level:
+    com.tjetc.dao: debug
+    org.springframework.web: debug
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true  #下划线转驼峰
+  type-aliases-package: com.tjetc.domain #别名包
+minio:
+  endpoint: http://192.168.88.128:9000 #minio服务所在地址
+  bucketName: images #存储桶名称
+  accessKey: AKIAIOSFODNN7EXAMPLE
+  secretKey: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+
+alipay:
+  appId: 9021000140645732
+  appPrivateKey: MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCEoDK/cC4DIMWjkl6Q/HI17gXnk9nx6kRwtL/sUVRLOMrywQjp0uS5+Q57hb/cBpir9MYIUo1wIXjelkxobiZmQM4BeTW36PMBpsWyeJLfhwXKQLSnJ+PuHZi+NzcKlzoRht6+YEfxikvAearEcvG6BBlmOHZRX4MPdpShL3T4ownTyba1XFqGFf+IMk+qQ7mAqWshUo9X2MZ0athpUQl1G0UFHAI2NKq/OIi49NaPhns48pgeHzRmrNzLUy/jSxvQxhsdbp8RfAiU+q3ksrP9OmyU1qDk4t8Mu5CtByZMRkPa7xGW5gpAfshDYTfzpu6fW0cCEXiiBZxXiwOpAfdPAgMBAAECggEAGxW8R2xZeToQIr+ZoHJtwKXDfu+q6sS1BW9kYpaZaGNIzxqs/1OacoByfLdr3ztZooRyjPCPAf9T9+Ep6YnVPbyuVY6zccOZHRU5+qC1HgEtJYjhW+HBordYokAUdY08xqeMhcST7LgZkE1ImqX+x8ZeiYmuYB/pXBcTc3eFo+EcK+j6kBQmBXdd1KGdzU9bNprLpa4PXvuesRKh0M0dsGb3KShfgpF77srt4QcGqdHHKY0QDZyxTvUcZtn0Mnt6fB5oFpJK+rkmSwjtq5cJFOVyzI0fTe50lh9DyFQ4+qs7JOT+kPwpWhDtJvB214IFZ6uCRLmw2d71cBzW1B94gQKBgQDPq3EURKhqwssMtTUQ2XHNKbtfpG1EMEgfJQe6AY+eMHkeBdVwoGZrqE4IR+ryrKQ/jueJ3zTKBypb4Kfjs8Za9FvOu7kU1njMSzjqz2zMVaUTtEkTpI0AEcWAIC+qXwLmLVVAm0oaQorYVI94sxVJS6OyNuqMkVKWMQGMtIBCJwKBgQCjfcj6tjKsGQh5tcX1ilUz/cIV4lB2g+5YanI2XRCO+Aj9OIN1EUXIV4L4yp0ZlGB0XtSM5NmaqDlL5X952nJLzz0T0pddmy6sXuNpokQh4SV/F/J4YeOryNm4RChn5w/XLCT/O6v1sAXa+M+lstt1tLagQ/YAp5RH0DDjHuzimQKBgAYqlw79Aus4oYLdFphLfJ+U76VlYoE11c5m8RXK2hLeaZpEnhPcD25+7uI8EHPoQHBKtAFaCV0+XTmhMBsIyYkF3HwFAvflbmzShvwh8J8Yo/Az2D+nETDBVlX5nrC2ZYWkLvXeJpMlCq5lxGTXHHiysEeobcqCvisLhXpCGdTdAoGAek6rgAO1vNGtaX/27E3kl9SK0dxQ3ZitQi+/6bONo6ci8mzIy1d0oP/21zCcfnpl/ijDUfQSZoTa+FBkIUCuqNAMnTu6SSjCrej+sBPYbJAGgSHlHvH8ZJMJbbRvletiClLYCqkVZ+ObPclNbmRzkYbz6Mluy+aSI3c4W3DTPmECgYB7Eh31zjQ7Lz0sQmcQr1xZ3Lesa+rNqcoCeNOWqHeyfakBwpGsS97nmtewyzLIN35XOpcxnCK7WAYrCkMZJhjhvBCwoUvWhFfTuU38hUKp0Yk6+nWhRdju32eMT+fWEu4q/LQaLKQS5VyMytBwkRto/nii6dKUT2wppvtv8yTntg==
+  alipayPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhKAyv3AuAyDFo5JekPxyNe4F55PZ8epEcLS/7FFUSzjK8sEI6dLkufkOe4W/3AaYq/TGCFKNcCF43pZMaG4mZkDOAXk1t+jzAabFsniS34cFykC0pyfj7h2Yvjc3Cpc6EYbevmBH8YpLwHmqxHLxugQZZjh2UV+DD3aUoS90+KMJ08m2tVxahhX/iDJPqkO5gKlrIVKPV9jGdGrYaVEJdRtFBRwCNjSqvziIuPTWj4Z7OPKYHh80Zqzcy1Mv40sb0MYbHW6fEXwIlPqt5LKz/TpslNag5OLfDLuQrQcmTEZD2u8RluYKQH7IQ2E386bun1tHAhF4ogWcV4sDqQH3TwIDAQAB
+  notifyUrl: http://k5dweg.natappfree.cc/alipay/notify
+  returnUrl: http://localhost:5173/order/train
+  signType: RSA2
+  charset: utf-8
+  format: json
+  # 我的支付宝网关地址
+  gatewayUrl: https://openapi-sandbox.dl.alipaydev.com/gateway.do
+

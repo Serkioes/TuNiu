@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///tuniu?serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+  rabbitmq:
+    host: 192.168.88.128
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+  data:
+    redis:
+      host: 192.168.88.128
+      port: 6379
+logging:
+  level:
+    com.tjetc.dao: debug
+mybatis:
+  type-aliases-package: com.tjetc.domain
+  configuration:
+    map-underscore-to-camel-case: true
+server:
+  port: 9090
