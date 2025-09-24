@@ -9,7 +9,7 @@ public interface UserService {
 
     User findByName(String name);
 
-    void register(User user);
+    String register(User user);
 
     String getAccount(Integer id);
 
