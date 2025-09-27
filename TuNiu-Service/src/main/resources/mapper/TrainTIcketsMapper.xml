@@ -1,0 +1,29 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tjetc.dao.TrainTicketsMapper">
+    <select id="list" resultType="com.tjetc.domain.TrainTickets">
+        SELECT * FROM train_tickets 
+        WHERE start_station = #{startStation} 
+        AND end_station = #{endStation} 
+        AND start_time LIKE CONCAT('%', #{startTime}, '%')
+        <if test="condition != null and condition != ''">
+            <choose>
+                <when test="condition == 'time'">
+                    ORDER BY start_time ASC
+                </when>
+                <when test="condition == 'price'">
+                    ORDER BY price ASC
+                </when>
+                <when test="condition == 'duration'">
+                    ORDER BY duration ASC
+                </when>
+                <otherwise>
+                    <!-- 默认排序 -->
+                    ORDER BY start_time ASC
+                </otherwise>
+            </choose>
+        </if>
+    </select>
+</mapper>

@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface PassengerMapper {
 
-    @Select("select * from passenger where user id=#{id} and name like concat('%',#{name},'%')")
+    @Select("select * from passenger where user_id=#{userId} and name like concat('%',#{name},'%')")
     List<Passenger> list(@Param("userId")Integer userId,@Param("name")String name);
 
     @Delete("delete from passenger where id=#{id}")

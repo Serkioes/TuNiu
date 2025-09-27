@@ -8,7 +8,6 @@ import com.tjetc.util.SaltMD5Util;
 import com.tjetc.vo.Result;
 import com.tjetc.vo.TokenUserIdVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/user")

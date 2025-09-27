@@ -18,11 +18,7 @@ public class UserServiceImpl implements UserService {
     private static int num = 0;
     @Override
     public User findByAccount(String account){
-        return UserMapper.findByUsername(account);
-    }
-    @Override
-    public User findByName(String name){
-        return UserMapper.findByName(name);
+        return UserMapper.findByUseraccount(account);
     }
     @Override
     public String register(User user){
